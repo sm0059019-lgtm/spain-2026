@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>موزه | المركز التعليمي المتميز</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root{
+    --primary:#1e3a8a;
+    --primary-dark:#152a61;
+    --secondary:#f59e0b;
+    --secondary-dark:#d97706;
+    --accent:#10b981;
+    --dark:#1f2937;
+    --gray:#6b7280;
+    --light-gray:#f3f4f6;
+    --white:#ffffff;
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+    --shadow-lg:0 20px 50px rgba(0,0,0,.12);
+    --radius:16px;
+    --transition:all .3s ease;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Tajawal',sans-serif;
+    background:var(--white);
+    color:var(--dark);
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  img{max-width:100%;display:block;}
+  .container{max-width:1200px;margin:0 auto;padding:0 20px;}
+
+  /* ===== HEADER ===== */
+  .header{
+    position:fixed;top:0;left:0;right:0;
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+    box-shadow:0 2px 20px rgba(0,0,0,.05);
+    transition:var(--transition);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:15px 0;
+  }
+  .logo{
+    display:flex;align-items:center;gap:12px;
+    cursor:pointer;
+  }
+  .logo-icon{
+    width:50px;height:50px;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    color:white;font-size:24px;
+    box-shadow:0 5px 15px rgba(30,58,138,.3);
+  }
+  .logo-text h1{font-size:22px;color:var(--primary);font-weight:900;line-height:1;}
+  .logo-text span{font-size:12px;color:var(--gray);font-weight:500;}
+  .nav-links{display:flex;gap:30px;align-items:center;}
+  .nav-links a{
+    font-weight:500;color:var(--dark);
+    position:relative;transition:var(--transition);
+  }
+  .nav-links a:hover,.nav-links a.active{color:var(--primary);}
+  .nav-links a::after{
+    content:'';position:absolute;bottom:-5px;right:0;
+    width:0;height:2px;background:var(--secondary);
+    transition:var(--transition);
+  }
+  .nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 28px;border-radius:50px;
+    font-weight:700;font-size:15px;
+    cursor:pointer;border:none;
+    transition:var(--transition);
+    font-family:inherit;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+    color:white;box-shadow:0 5px 20px rgba(30,58,138,.3);
+  }
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(30,58,138,.4);}
+  .btn-secondary{
+    background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
+    color:white;box-shadow:0 5px 20px rgba(245,158,11,.3);
+  }
+  .btn-secondary:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(245,158,11,.4);}
+  .btn-outline{
+    background:transparent;color:var(--primary);
+    border:2px solid var(--primary);
+  }
+  .btn-outline:hover{background:var(--primary);color:white;}
+  .menu-toggle{
+    display:none;background:none;border:none;
+    font-size:24px;color:var(--primary);cursor:pointer;
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    min-height:100vh;
+    padding:140px 0 80px;
+    background:linear-gradient(135deg,#f0f4ff 0%,#fef3c7 100%);
+    position:relative;overflow:hidden;
+    display:flex;align-items:center;
+  }
+  .hero::before{
+    content:'';position:absolute;top:-100px;left:-100px;
+    width:400px;height:400px;
+    background:radial-gradient(circle,rgba(245,158,11,.15),transparent);
+    border-radius:50%;
+  }
+  .hero::after{
+    content:'';position:absolute;bottom:-100px;right:-100px;
+    width:500px;height:500px;
+    background:radial-gradient(circle,rgba(30,58,138,.1),transparent);
+    border-radius:50%;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:60px;align-items:center;
+    position:relative;z-index:1;
+  }
+  .hero-content h2{
+    font-size:52px;font-weight:900;
+    color:var(--primary);line-height:1.2;
+    margin-bottom:20px;
+  }
+  .hero-content h2 span{color:var(--secondary);}
+  .hero-content p{
+    font-size:18px;color:var(--gray);
+    margin-bottom:30px;max-width:500px;
+  }
+  .hero-buttons{display:flex;gap:15px;flex-wrap:wrap;}
+  .hero-stats{
+    display:flex;gap:40px;margin-top:50px;
+    padding-top:30px;border-top:1px solid rgba(30,58,138,.1);
+  }
+  .stat-item h3{font-size:36px;color:var(--primary);font-weight:900;}
+  .stat-item p{font-size:14px;color:var(--gray);margin:0;}
+  .hero-image{
+    position:relative;
+    display:flex;justify-content:center;align-items:center;
+  }
+  .hero-image-box{
+    width:100%;max-width:450px;aspect-ratio:1;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    border-radius:30px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:var(--shadow-lg);
+    position:relative;overflow:hidden;
+  }
+  .hero-image-box i{font-size:180px;color:rgba(255,255,255,.9);}
+  .floating-card{
+    position:absolute;background:white;
+    padding:15px 20px;border-radius:15px;
+    box-shadow:var(--shadow-lg);
+    display:flex;align-items:center;gap:12px;
+    animation:float 3s ease-in-out infinite;
+  }
+  .floating-card i{font-size:24px;color:var(--secondary);}
+  .floating-card strong{display:block;color:var(--primary);font-size:14px;}
+  .floating-card span{font-size:12px;color:var(--gray);}
+  .fc1{top:20px;right:-20px;}
+  .fc2{bottom:40px;left:-30px;animation-delay:1.5s;}
+  @keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+  }
+
+  /* ===== SECTIONS ===== */
+  section{padding:80px 0;}
+  .section-title{text-align:center;margin-bottom:60px;}
+  .section-title span{
+    display:inline-block;padding:6px 18px;
+    background:rgba(245,158,11,.15);color:var(--secondary-dark);
+    border-radius:50px;font-size:14px;font-weight:700;
+    margin-bottom:15px;
+  }
+  .section-title h2{
+    font-size:40px;font-weight:900;
+    color:var(--primary);margin-bottom:15px;
+  }
+  .section-title p{color:var(--gray);font-size:17px;max-width:600px;margin:0 auto;}
+
+  /* ===== ABOUT ===== */
+  .about{background:var(--white);}
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:60px;align-items:center;
+  }
+  .about-image{
+    background:linear-gradient(135deg,#fef3c7,#f0f4ff);
+    border-radius:30px;padding:40px;
+    display:flex;align-items:center;justify-content:center;
+    aspect-ratio:1;position:relative;
+  }
+  .about-image i{font-size:150px;color:var(--primary);opacity:.85;}
+  .about-content h2{
+    font-size:38px;color:var(--primary);
+    font-weight:900;margin-bottom:20px;line-height:1.3;
+  }
+  .about-content p{color:var(--gray);margin-bottom:20px;font-size:16px;}
+  .about-features{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px;}
+  .about-feature{
+    display:flex;align-items:center;gap:12px;
+  }
+  .about-feature i{
+    width:40px;height:40px;border-radius:10px;
+    background:rgba(16,185,129,.15);color:var(--accent);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .about-feature span{font-weight:600;color:var(--dark);}
+
+  /* ===== FEATURES ===== */
+  .features{background:var(--light-gray);}
+  .features-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+  }
+  .feature-card{
+    background:white;padding:35px 25px;
+    border-radius:var(--radius);
+    text-align:center;
+    transition:var(--transition);
+    border:2px solid transparent;
+  }
+  .feature-card:hover{
+    transform:translateY(-10px);
+    border-color:var(--secondary);
+    box-shadow:var(--shadow-lg);
+  }
+  .feature-icon{
+    width:80px;height:80px;margin:0 auto 20px;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    border-radius:20px;
+    display:flex;align-items:center;justify-content:center;
+    color:white;font-size:32px;
+    transition:var(--transition);
+  }
+  .feature-card:hover .feature-icon{transform:rotate(-10deg) scale(1.1);}
+  .feature-card h3{color:var(--primary);font-size:20px;margin-bottom:12px;}
+  .feature-card p{color:var(--gray);font-size:15px;}
+
+  /* ===== COURSES ===== */
+  .courses{background:white;}
+  .courses-filter{
+    display:flex;gap:10px;justify-content:center;
+    flex-wrap:wrap;margin-bottom:40px;
+  }
+  .filter-btn{
+    padding:10px 22px;border-radius:50px;
+    background:white;color:var(--dark);
+    border:2px solid var(--light-gray);
+    font-weight:600;cursor:pointer;
+    transition:var(--transition);font-family:inherit;
+  }
+  .filter-btn.active,.filter-btn:hover{
+    background:var(--primary);color:white;border-color:var(--primary);
+  }
+  .courses-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:25px;
+  }
+  .course-card{
+    background:white;border-radius:var(--radius);
+    overflow:hidden;box-shadow:var(--shadow);
+    transition:var(--transition);
+    position:relative;
+  }
+  .course-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);}
+  .course-image{
+    height:180px;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+  }
+  .course-image i{font-size:70px;color:rgba(255,255,255,.9);}
+  .course-badge{
+    position:absolute;top:15px;right:15px;
+    padding:5px 15px;border-radius:50px;
+    font-size:12px;font-weight:700;color:white;
+  }
+  .badge-available{background:var(--accent);}
+  .badge-full{background:#ef4444;}
+  .badge-soon{background:var(--secondary);}
+  .course-body{padding:22px;}
+  .course-subject{
+    display:inline-block;padding:4px 12px;
+    background:rgba(30,58,138,.1);color:var(--primary);
+    border-radius:50px;font-size:12px;font-weight:700;
+    margin-bottom:10px;
+  }
+  .course-body h3{
+    font-size:19px;color:var(--dark);
+    margin-bottom:10px;line-height:1.4;
+  }
+  .course-body p{
+    color:var(--gray);font-size:14px;
+    margin-bottom:15px;
+    display:-webkit-box;-webkit-line-clamp:2;
+    -webkit-box-orient:vertical;overflow:hidden;
+  }
+  .course-meta{
+    display:flex;flex-wrap:wrap;gap:12px;
+    padding:15px 0;border-top:1px solid var(--light-gray);
+    border-bottom:1px solid var(--light-gray);
+    margin-bottom:15px;font-size:13px;color:var(--gray);
+  }
+  .course-meta span{display:flex;align-items:center;gap:5px;}
+  .course-meta i{color:var(--secondary);}
+  .course-footer{
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .course-price{font-size:20px;font-weight:900;color:var(--primary);}
+  .course-price small{font-size:12px;color:var(--gray);font-weight:400;}
+  .course-btn{
+    padding:8px 18px;background:var(--primary);
+    color:white;border-radius:50px;
+    font-size:13px;font-weight:700;
+    cursor:pointer;border:none;
+    transition:var(--transition);font-family:inherit;
+  }
+  .course-btn:hover{background:var(--secondary);}
+
+  /* ===== CONTACT ===== */
+  .contact{
+    background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);
+    color:white;position:relative;overflow:hidden;
+  }
+  .contact::before{
+    content:'';position:absolute;top:-50%;right:-10%;
+    width:500px;height:500px;
+    background:radial-gradient(circle,rgba(245,158,11,.2),transparent);
+    border-radius:50%;
+  }
+  .contact .section-title h2{color:white;}
+  .contact .section-title p{color:rgba(255,255,255,.8);}
+  .contact .section-title span{background:rgba(245,158,11,.2);color:var(--secondary);}
+  .contact-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:40px;position:relative;z-index:1;
+  }
+  .contact-info{display:flex;flex-direction:column;gap:25px;}
+  .contact-item{
+    display:flex;align-items:center;gap:20px;
+    background:rgba(255,255,255,.1);
+    padding:20px;border-radius:var(--radius);
+    backdrop-filter:blur(10px);
+    transition:var(--transition);
+  }
+  .contact-item:hover{background:rgba(255,255,255,.15);transform:translateX(-5px);}
+  .contact-item i{
+    width:55px;height:55px;border-radius:15px;
+    background:var(--secondary);color:white;
+    display:flex;align-items:center;justify-content:center;
+    font-size:22px;flex-shrink:0;
+  }
+  .contact-item h4{font-size:14px;color:rgba(255,255,255,.7);margin-bottom:5px;}
+  .contact-item p{font-size:17px;font-weight:600;}
+  .contact-form{
+    background:white;padding:35px;
+    border-radius:var(--radius);
+    color:var(--dark);
+  }
+  .contact-form h3{color:var(--primary);margin-bottom:20px;font-size:22px;}
+  .form-group{margin-bottom:18px;}
+  .form-group label{
+    display:block;margin-bottom:8px;
+    font-weight:600;font-size:14px;
+  }
+  .form-group input,.form-group textarea,.form-group select{
+    width:100%;padding:12px 15px;
+    border:2px solid var(--light-gray);
+    border-radius:10px;font-family:inherit;
+    font-size:15px;transition:var(--transition);
+  }
+  .form-group input:focus,.form-group textarea:focus,.form-group select:focus{
+    outline:none;border-color:var(--primary);
+  }
+  .form-group textarea{resize:vertical;min-height:100px;}
+
+  /* ===== FOOTER ===== */
+  .footer{
+    background:var(--dark);color:white;
+    padding:60px 0 20px;
+  }
+  .footer-grid{
+    display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:40px;margin-bottom:40px;
+  }
+  .footer-about h3{font-size:22px;margin-bottom:15px;color:var(--secondary);}
+  .footer-about p{color:rgba(255,255,255,.7);font-size:14px;margin-bottom:20px;}
+  .footer-social{display:flex;gap:12px;}
+  .footer-social a{
+    width:40px;height:40px;border-radius:10px;
+    background:rgba(255,255,255,.1);
+    display:flex;align-items:center;justify-content:center;
+    transition:var(--transition);
+  }
+  .footer-social a:hover{background:var(--secondary);transform:translateY(-3px);}
+  .footer-col h4{font-size:17px;margin-bottom:20px;color:white;}
+  .footer-col ul li{margin-bottom:10px;}
+  .footer-col ul li a{
+    color:rgba(255,255,255,.7);font-size:14px;
+    transition:var(--transition);
+  }
+  .footer-col ul li a:hover{color:var(--secondary);padding-right:5px;}
+  .footer-bottom{
+    padding-top:20px;border-top:1px solid rgba(255,255,255,.1);
+    text-align:center;color:rgba(255,255,255,.6);font-size:14px;
+  }
+
+  /* ===== WHATSAPP BUTTON ===== */
+  .whatsapp-btn{
+    position:fixed;bottom:25px;left:25px;
+    width:60px;height:60px;border-radius:50%;
+    background:#25d366;color:white;
+    display:flex;align-items:center;justify-content:center;
+    font-size:30px;z-index:999;
+    box-shadow:0 5px 20px rgba(37,211,102,.4);
+    cursor:pointer;transition:var(--transition);
+    animation:pulse 2s infinite;
+  }
+  .whatsapp-btn:hover{transform:scale(1.1);}
+  @keyframes pulse{
+    0%,100%{box-shadow:0 5px 20px rgba(37,211,102,.4);}
+    50%{box-shadow:0 5px 30px rgba(37,211,102,.7);}
+  }
+
+  /* ===== COURSE DETAILS PAGE ===== */
+  .course-details{
+    display:none;padding:120px 0 60px;
+    background:var(--light-gray);min-height:100vh;
+  }
+  .course-details.active{display:block;}
+  .back-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 20px;background:white;
+    border-radius:50px;color:var(--primary);
+    font-weight:700;margin-bottom:25px;
+    box-shadow:var(--shadow);cursor:pointer;
+    border:none;font-family:inherit;
+    transition:var(--transition);
+  }
+  .back-btn:hover{background:var(--primary);color:white;}
+  .details-grid{
+    display:grid;grid-template-columns:2fr 1fr;
+    gap:30px;
+  }
+  .details-main{
+    background:white;padding:35px;
+    border-radius:var(--radius);box-shadow:var(--shadow);
+  }
+  .details-hero{
+    height:250px;border-radius:var(--radius);
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:25px;position:relative;
+  }
+  .details-hero i{font-size:100px;color:rgba(255,255,255,.9);}
+  .details-main h1{
+    font-size:32px;color:var(--primary);
+    margin-bottom:15px;
+  }
+  .details-meta{
+    display:flex;flex-wrap:wrap;gap:15px;
+    margin-bottom:25px;padding-bottom:20px;
+    border-bottom:2px solid var(--light-gray);
+  }
+  .details-meta span{
+    display:flex;align-items:center;gap:6px;
+    padding:6px 14px;background:var(--light-gray);
+    border-radius:50px;font-size:13px;font-weight:600;
+  }
+  .details-meta i{color:var(--secondary);}
+  .details-section{margin-bottom:30px;}
+  .details-section h3{
+    color:var(--primary);font-size:22px;
+    margin-bottom:15px;
+    padding-right:15px;border-right:4px solid var(--secondary);
+  }
+  .details-section p{color:var(--gray);line-height:1.9;}
+  .details-section ul{padding-right:20px;}
+  .details-section ul li{
+    padding:10px 0;color:var(--gray);
+    position:relative;padding-right:25px;
+  }
+  .details-section ul li::before{
+    content:'\f00c';font-family:'Font Awesome 6 Free';font-weight:900;
+    position:absolute;right:0;top:12px;
+    color:var(--accent);font-size:14px;
+  }
+  .details-sidebar{
+    background:white;padding:30px;
+    border-radius:var(--radius);box-shadow:var(--shadow);
+    height:fit-content;position:sticky;top:100px;
+  }
+  .price-box{
+    text-align:center;padding:25px;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    border-radius:var(--radius);color:white;
+    margin-bottom:25px;
+  }
+  .price-box .price{font-size:40px;font-weight:900;margin:10px 0;}
+  .price-box small{font-size:14px;opacity:.9;}
+  .info-list{margin-bottom:25px;}
+  .info-list li{
+    display:flex;justify-content:space-between;
+    padding:12px 0;border-bottom:1px solid var(--light-gray);
+  }
+  .info-list li:last-child{border:none;}
+  .info-list li span:first-child{color:var(--gray);font-size:14px;}
+  .info-list li span:last-child{font-weight:700;color:var(--dark);}
+  .enroll-btn{
+    width:100%;padding:15px;
+    background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
+    color:white;border:none;border-radius:50px;
+    font-size:16px;font-weight:700;cursor:pointer;
+    font-family:inherit;transition:var(--transition);
+    margin-bottom:10px;
+  }
+  .enroll-btn:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(245,158,11,.4);}
+  .whatsapp-enroll{
+    width:100%;padding:15px;
+    background:#25d366;color:white;
+    border:none;border-radius:50px;
+    font-size:16px;font-weight:700;cursor:pointer;
+    font-family:inherit;transition:var(--transition);
+    display:flex;align-items:center;justify-content:center;gap:10px;
+  }
+  .whatsapp-enroll:hover{background:#1ea855;}
+
+  /* ===== PAGES ===== */
+  .page{display:none;}
+  .page.active{display:block;}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:992px){
+    .hero-grid,.about-grid,.contact-grid,.details-grid{grid-template-columns:1fr;}
+    .hero-content h2{font-size:38px;}
+    .section-title h2,.about-content h2{font-size:30px;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .details-sidebar{position:static;}
+  }
+  @media(max-width:768px){
+    .nav-links{
+      position:fixed;top:80px;right:-100%;
+      flex-direction:column;background:white;
+      width:80%;height:calc(100vh - 80px);
+      padding:30px;gap:20px;
+      box-shadow:-5px 0 20px rgba(0,0,0,.1);
+      transition:var(--transition);
+    }
+    .nav-links.active{right:0;}
+    .menu-toggle{display:block;}
+    .hero-content h2{font-size:32px;}
+    .hero-stats{gap:20px;flex-wrap:wrap;}
+    .stat-item h3{font-size:28px;}
+    .about-features{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .details-main,.details-sidebar,.contact-form{padding:25px;}
+    .details-main h1{font-size:24px;}
+  }
+  @media(max-width:480px){
+    .hero{padding:120px 0 60px;}
+    .hero-content h2{font-size:28px;}
+    .section-title h2{font-size:26px;}
+    .floating-card{padding:10px 15px;font-size:12px;}
+    .floating-card i{font-size:18px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="container">
+    <nav class="nav">
+      <div class="logo" onclick="showPage('home')">
+        <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div class="logo-text">
+          <h1>موزه</h1>
+          <span>مركز تعليمي متميز</span>
+        </div>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#" class="active" onclick="showPage('home');setActive(this);return false;">الرئيسية</a></li>
+        <li><a href="#" onclick="scrollToSection('about');setActive(this);return false;">من نحن</a></li>
+        <li><a href="#" onclick="showPage('courses');setActive(this);return false;">الكورسات</a></li>
+        <li><a href="#" onclick="scrollToSection('features');setActive(this);return false;">المميزات</a></li>
+        <li><a href="#" onclick="scrollToSection('contact');setActive(this);return false;">تواصل معنا</a></li>
+        <li><a href="#" class="btn btn-primary" onclick="openWhatsApp();return false;"><i class="fab fa-whatsapp"></i> احجز الآن</a></li>
+      </ul>
+      <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HOME PAGE ===== -->
+<div class="page active" id="homePage">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <h2>مستقبل تعليمي <span>مشرق</span> يبدأ من هنا</h2>
+          <p>مركز موزه التعليمي يقدم لك أفضل الكورسات التعليمية بأعلى جودة ومع أفضل المدرسين لمساعدتك على التفوق والنجاح في جميع المراحل الدراسية.</p>
+          <div class="hero-buttons">
+            <button class="btn btn-primary" onclick="showPage('courses')"><i class="fas fa-book-open"></i> تصفح الكورسات</button>
+            <button class="btn btn-outline" onclick="scrollToSection('contact')"><i class="fas fa-phone"></i> تواصل معنا</button>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item"><h3>+1500</h3><p>طالب وطالبة</p></div>
+            <div class="stat-item"><h3>+50</h3><p>كورس متنوع</p></div>
+            <div class="stat-item"><h3>+30</h3><p>مدرس متميز</p></div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="hero-image-box">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <div class="floating-card fc1">
+            <i class="fas fa-award"></i>
+            <div><strong>جودة عالية</strong><span>مناهج معتمدة</span></div>
+          </div>
+          <div class="floating-card fc2">
+            <i class="fas fa-star"></i>
+            <div><strong>تقييم 4.9</strong><span>من أولياء الأمور</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <i class="fas fa-school"></i>
+        </div>
+        <div class="about-content">
+          <span style="display:inline-block;padding:6px 18px;background:rgba(245,158,11,.15);color:var(--secondary-dark);border-radius:50px;font-size:14px;font-weight:700;margin-bottom:15px;">من نحن</span>
+          <h2>مركز موزه... شريكك في رحلة التفوق</h2>
+          <p>مركز موزه التعليمي هو وجهة متميزة للطلاب الذين يسعون للتميز والنجاح. نؤمن بأن كل طالب يمتلك قدرات فريدة، ومهمتنا هي اكتشاف هذه القدرات وتنميتها من خلال بيئة تعليمية محفزة ومناهج حديثة.</p>
+          <p>نقدم خدماتنا التعليمية لجميع المراحل الدراسية بأساليب مبتكرة تجمع بين الأصالة في المحتوى والحداثة في الأسلوب.</p>
+          <div class="about-features">
+            <div class="about-feature"><i class="fas fa-check"></i><span>مدرسون خبراء</span></div>
+            <div class="about-feature"><i class="fas fa-check"></i><span>مناهج حديثة</span></div>
+            <div class="about-feature"><i class="fas fa-check"></i><span>متابعة مستمرة</span></div>
+            <div class="about-feature"><i class="fas fa-check"></i><span>أسعار مناسبة</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-title">
+        <span>لماذا موزه؟</span>
+        <h2>مميزات تجعلنا الخيار الأول</h2>
+        <p>نقدم لك تجربة تعليمية متكاملة تجمع بين الجودة والاحترافية والاهتمام بكل طالب</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <h3>نخبة من المدرسين</h3>
+          <p>نختار أفضل المدرسين ذوي الخبرة والكفاءة العالية في شرح المناهج بأسلوب مبسط</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-laptop"></i></div>
+          <h3>تقنيات حديثة</h3>
+          <p>نستخدم أحدث الوسائل التعليمية والتقنيات التفاعلية لتسهيل عملية التعلم</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-users"></i></div>
+          <h3>فصول صغيرة</h3>
+          <p>أعداد محدودة من الطلاب لضمان الاهتمام الفردي والتفاعل المباشر مع المدرس</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>متابعة الأداء</h3>
+          <p>تقارير دورية لأولياء الأمور عن مستوى الطالب وتطور أدائه الدراسي</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-book"></i></div>
+          <h3>مذكرات متميزة</h3>
+          <p>مذكرات وملخصات حصرية من إعداد المدرسين تغطي جميع أجزاء المنهج</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-clock"></i></div>
+          <h3>مواعيد مرنة</h3>
+          <p>جداول مرنة تناسب جميع الطلاب مع إمكانية الحجز في الأوقات المناسبة</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED COURSES -->
+  <section class="courses">
+    <div class="container">
+      <div class="section-title">
+        <span>كورساتنا</span>
+        <h2>الكورسات المميزة</h2>
+        <p>اختر من بين مجموعة متنوعة من الكورسات المصممة لتلبية احتياجاتك التعليمية</p>
+      </div>
+      <div class="courses-grid" id="featuredCourses"></div>
+      <div style="text-align:center;margin-top:40px;">
+        <button class="btn btn-primary" onclick="showPage('courses')"><i class="fas fa-th-large"></i> عرض جميع الكورسات</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <span>تواصل معنا</span>
+        <h2>نحن هنا لمساعدتك</h2>
+        <p>لا تتردد في التواصل معنا لأي استفسار أو للحجز في الكورسات</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div><h4>العنوان</h4><p>شارع التعليم، القاهرة، مصر</p></div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <div><h4>الهاتف</h4><p dir="ltr">+20 100 123 4567</p></div>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-whatsapp"></i>
+            <div><h4>واتساب</h4><p dir="ltr">+20 100 123 4567</p></div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div><h4>البريد الإلكتروني</h4><p>info@mouza-center.com</p></div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-clock"></i>
+            <div><h4>ساعات العمل</h4><p>السبت - الخميس: 9 ص - 10 م</p></div>
+          </div>
+        </div>
+        <form class="contact-form" onsubmit="submitForm(event)">
+          <h3>أرسل لنا رسالة</h3>
+          <div class="form-group">
+            <label>الاسم الكامل</label>
+            <input type="text" required placeholder="أدخل اسمك">
+          </div>
+          <div class="form-group">
+            <label>رقم الهاتف</label>
+            <input type="tel" required placeholder="أدخل رقم هاتفك">
+          </div>
+          <div class="form-group">
+            <label>المرحلة الدراسية</label>
+            <select required>
+              <option value="">اختر المرحلة</option>
+              <option>الصف الأول الإعدادي</option>
+              <option>الصف الثاني الإعدادي</option>
+              <option>الصف الثالث الإعدادي</option>
+              <option>الصف الأول الثانوي</option>
+              <option>الصف الثاني الثانوي</option>
+              <option>الصف الثالث الثانوي</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>رسالتك</label>
+            <textarea placeholder="اكتب رسالتك هنا..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+            <i class="fas fa-paper-plane"></i> إرسال الرسالة
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== COURSES PAGE ===== -->
+<div class="page" id="coursesPage">
+  <section class="courses" style="padding-top:120px;">
+    <div class="container">
+      <div class="section-title">
+        <span>جميع الكورسات</span>
+        <h2>استكشف كورساتنا</h2>
+        <p>مجموعة شاملة من الكورسات في جميع المواد لجميع المراحل الدراسية</p>
+      </div>
+      <div class="courses-filter">
+        <button class="filter-btn active" onclick="filterCourses('all',this)">الكل</button>
+        <button class="filter-btn" onclick="filterCourses('رياضيات',this)">رياضيات</button>
+        <button class="filter-btn" onclick="filterCourses('فيزياء',this)">فيزياء</button>
+        <button class="filter-btn" onclick="filterCourses('كيمياء',this)">كيمياء</button>
+        <button class="filter-btn" onclick="filterCourses('أحياء',this)">أحياء</button>
+        <button class="filter-btn" onclick="filterCourses('لغة عربية',this)">لغة عربية</button>
+        <button class="filter-btn" onclick="filterCourses('لغة إنجليزية',this)">لغة إنجليزية</button>
+      </div>
+      <div class="courses-grid" id="allCourses"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== COURSE DETAILS PAGE ===== -->
+<div class="course-details" id="courseDetailsPage">
+  <div class="container">
+    <button class="back-btn" onclick="showPage('courses')"><i class="fas fa-arrow-right"></i> العودة للكورسات</button>
+    <div class="details-grid">
+      <div class="details-main" id="detailsMain"></div>
+      <div class="details-sidebar" id="detailsSidebar"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <h3>مركز موزه</h3>
+        <p>مركز تعليمي متميز يقدم أفضل الخدمات التعليمية للطلاب في جميع المراحل الدراسية بأعلى معايير الجودة والاحترافية.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>روابط سريعة</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('home');return false;">الرئيسية</a></li>
+          <li><a href="#" onclick="scrollToSection('about');return false;">من نحن</a></li>
+          <li><a href="#" onclick="showPage('courses');return false;">الكورسات</a></li>
+          <li><a href="#" onclick="scrollToSection('contact');return false;">تواصل معنا</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>المواد الدراسية</h4>
+        <ul>
+          <li><a href="#">الرياضيات</a></li>
+          <li><a href="#">الفيزياء</a></li>
+          <li><a href="#">الكيمياء</a></li>
+          <li><a href="#">الأحياء</a></li>
+          <li><a href="#">اللغة العربية</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>تواصل معنا</h4>
+        <ul>
+          <li><i class="fas fa-phone"></i> <span dir="ltr">+20 100 123 4567</span></li>
+          <li><i class="fas fa-envelope"></i> info@mouza-center.com</li>
+          <li><i class="fas fa-map-marker-alt"></i> القاهرة، مصر</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 مركز موزه التعليمي - جميع الحقوق محفوظة</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== WHATSAPP FLOATING ===== -->
+<a href="#" class="whatsapp-btn" onclick="openWhatsApp();return false;" title="تواصل عبر واتساب">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+  // ===== COURSES DATA =====
+  const coursesData = [
+    {
+      id:1, title:"كورس الرياضيات الشامل - ثانوية عامة",
+      subject:"رياضيات", stage:"الصف الثالث الثانوي",
+      teacher:"أ. محمد أحمد", duration:"4 أشهر",
+      lectures:32, price:1200, status:"متاح",
+      schedule:"السبت والثلاثاء 5-7 م",
+      icon:"fa-square-root-variable",
+      description:"كورس شامل في مادة الرياضيات للصف الثالث الثانوي يغطي جميع فروع المادة (الجبر، التفاضل والتكامل، الاستاتيكا، الديناميكا) بأسلوب مبسط وممتع.",
+      objectives:["إتقان جميع فروع الرياضيات للثانوية العامة","حل مسائل الامتحانات السابقة","التدريب على نماذج الامتحانات","بناء قاعدة قوية في الرياضيات"],
+      content:["الجبر والهندسة الفراغية","التفاضل والتكامل","الاستاتيكا والديناميكا","مراجعات شاملة وحل امتحانات"]
+    },
+    {
+      id:2, title:"كورس الفيزياء المتكامل",
+      subject:"فيزياء", stage:"الصف الثاني الثانوي",
+      teacher:"د. أحمد سعيد", duration:"3 أشهر",
+      lectures:24, price:1000, status:"متاح",
+      schedule:"الأحد والأربعاء 4-6 م",
+      icon:"fa-atom",
+      description:"كورس متكامل في الفيزياء للصف الثاني الثانوي يشرح جميع الوحدات بأسلوب علمي مبسط مع تجارب عملية.",
+      objectives:["فهم القوانين الفيزيائية بشكل عميق","تطبيق النظريات على مسائل عملية","الاستعداد لامتحانات نهاية العام","تنمية مهارات التفكير العلمي"],
+      content:["الميكانيكا والحركة","الكهرباء والمغناطيسية","الموجات والصوت","الحرارة والديناميكا الحرارية"]
+    },
+    {
+      id:3, title:"كورس الكيمياء العضوية",
+      subject:"كيمياء", stage:"الصف الثالث الثانوي",
+      teacher:"د. سارة محمود", duration:"3 أشهر",
+      lectures:28, price:1100, status:"متاح",
+      schedule:"الاثنين والجمعة 6-8 م",
+      icon:"fa-flask",
+      description:"كورس متخصص في الكيمياء العضوية للثانوية العامة مع شرح تفصيلي لجميع التفاعلات والمركبات.",
+      objectives:["إتقان الكيمياء العضوية بالكامل","حفظ التفاعلات بطرق مبتكرة","حل مسائل الكيمياء بسرعة","التفوق في امتحانات الثانوية"],
+      content:["الهيدروكربونات","المجموعات الوظيفية","التفاعلات العضوية","الكيمياء الحيوية"]
+    },
+    {
+      id:4, title:"كورس الأحياء الشامل",
+      subject:"أحياء", stage:"الصف الثالث الثانوي",
+      teacher:"د. منى علي", duration:"3 أشهر",
+      lectures:26, price:950, status:"قريباً",
+      schedule:"الثلاثاء والجمعة 3-5 م",
+      icon:"fa-dna",
+      description:"كورس شامل في مادة الأحياء يغطي المنهج بالكامل مع رسومات توضيحية وأمثلة عملية.",
+      objectives:["فهم العمليات الحيوية بعمق","حفظ المصطلحات العلمية","تحليل الرسوم البيانية","الاستعداد لامتحانات الأحياء"],
+      content:["الوراثة والجينات","الجهاز العصبي والهرموني","التكاثر والنمو","البيئة والتصنيف"]
+    },
+    {
+      id:5, title:"كورس اللغة العربية المتميز",
+      subject:"لغة عربية", stage:"الصف الأول الثانوي",
+      teacher:"أ. فاطمة حسن", duration:"4 أشهر",
+      lectures:30, price:800, status:"متاح",
+      schedule:"السبت 10-12 ص",
+      icon:"fa-book-open",
+      description:"كورس شامل في اللغة العربية يشمل النحو والصرف والبلاغة والأدب والنصوص.",
+      objectives:["إتقان قواعد النحو والصرف","فهم البلاغة والأدب","تحسين مهارات الكتابة","التفوق في امتحانات اللغة العربية"],
+      content:["النحو والصرف","البلاغة والأدب","النصوص والقراءة","التعبير والكتابة"]
+    },
+    {
+      id:6, title:"كورس اللغة الإنجليزية المتقدم",
+      subject:"لغة إنجليزية", stage:"الصف الثاني الثانوي",
+      teacher:"أ. يوسف إبراهيم", duration:"3 أشهر",
+      lectures:24, price:900, status:"متاح",
+      schedule:"الأربعاء والسبت 2-4 م",
+      icon:"fa-language",
+      description:"كورس متقدم في اللغة الإنجليزية يركز على المحادثة والقواعد والكتابة.",
+      objectives:["تحسين مهارات المحادثة","إتقان القواعد الإنجليزية","تطوير مهارات الكتابة","الاستعداد لامتحانات اللغة"],
+      content:["Grammar & Tenses","Vocabulary & Idioms","Reading & Writing","Conversation Practice"]
+    },
+    {
+      id:7, title:"كورس الرياضيات للمرحلة الإعدادية",
+      subject:"رياضيات", stage:"الصف الثالث الإعدادي",
+      teacher:"أ. خالد عمر", duration:"3 أشهر",
+      lectures:20, price:700, status:"مكتمل",
+      schedule:"الاثنين والخميس 5-7 م",
+      icon:"fa-calculator",
+      description:"كورس الرياضيات الشامل للصف الثالث الإعدادي تمهيداً للمرحلة الثانوية.",
+      objectives:["تأسيس قوي في الرياضيات","الاستعداد للمرحلة الثانوية","حل مسائل متنوعة","بناء الثقة في المادة"],
+      content:["الجبر والهندسة","الإحصاء والاحتمالات","المعادلات والدوال","مراجعات وامتحانات"]
+    },
+    {
+      id:8, title:"كورس الفيزياء للصف الثالث الثانوي",
+      subject:"فيزياء", stage:"الصف الثالث الثانوي",
+      teacher:"د. أحمد سعيد", duration:"4 أشهر",
+      lectures:32, price:1150, status:"متاح",
+      schedule:"الأحد والثلاثاء 7-9 م",
+      icon:"fa-bolt",
+      description:"كورس الفيزياء الشامل للثانوية العامة مع حل جميع نماذج الامتحانات.",
+      objectives:["إتقان جميع وحدات الفيزياء","حل مسائل الامتحانات","فهم القوانين بشكل عميق","التفوق في الثانوية العامة"],
+      content:["الكهربية والمغناطيسية","الحركة والقوى","الفيزياء الحديثة","المراجعات النهائية"]
+    }
+  ];
+
+  // ===== RENDER COURSES =====
+  function renderCourseCard(course){
+    const statusClass = course.status==='متاح'?'badge-available':course.status==='مكتمل'?'badge-full':'badge-soon';
+    return `
+      <div class="course-card" data-subject="${course.subject}">
+        <div class="course-image">
+          <i class="fas ${course.icon}"></i>
+          <span class="course-badge ${statusClass}">${course.status}</span>
+        </div>
+        <div class="course-body">
+          <span class="course-subject">${course.subject}</span>
+          <h3>${course.title}</h3>
+          <p>${course.description}</p>
+          <div class="course-meta">
+            <span><i class="fas fa-user-tie"></i> ${course.teacher}</span>
+            <span><i class="fas fa-layer-group"></i> ${course.stage}</span>
+            <span><i class="fas fa-clock"></i> ${course.duration}</span>
+            <span><i class="fas fa-video"></i> ${course.lectures} محاضرة</span>
+          </div>
+          <div class="course-footer">
+            <div class="course-price">${course.price} <small>ج.م</small></div>
+            <button class="course-btn" onclick="showCourseDetails(${course.id})">عرض التفاصيل</button>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderFeaturedCourses(){
+    const featured = coursesData.slice(0,6);
+    document.getElementById('featuredCourses').innerHTML = featured.map(renderCourseCard).join('');
+  }
+
+  function renderAllCourses(filter='all'){
+    const filtered = filter==='all'?coursesData:coursesData.filter(c=>c.subject===filter);
+    document.getElementById('allCourses').innerHTML = filtered.map(renderCourseCard).join('');
+  }
+
+  // ===== COURSE DETAILS =====
+  function showCourseDetails(id){
+    const course = coursesData.find(c=>c.id===id);
+    if(!course) return;
+
+    document.getElementById('detailsMain').innerHTML = `
+      <div class="details-hero">
+        <i class="fas ${course.icon}"></i>
+      </div>
+      <h1>${course.title}</h1>
+      <div class="details-meta">
+        <span><i class="fas fa-book"></i> ${course.subject}</span>
+        <span><i class="fas fa-layer-group"></i> ${course.stage}</span>
+        <span><i class="fas fa-user-tie"></i> ${course.teacher}</span>
+        <span><i class="fas fa-calendar"></i> ${course.schedule}</span>
+      </div>
+      <div class="details-section">
+        <h3>وصف الكورس</h3>
+        <p>${course.description}</p>
+      </div>
+      <div class="details-section">
+        <h3>أهداف الكورس</h3>
+        <ul>${course.objectives.map(o=>`<li>${o}</li>`).join('')}</ul>
+      </div>
+      <div class="details-section">
+        <h3>المحتوى الدراسي</h3>
+        <ul>${course.content.map(c=>`<li>${c}</li>`).join('')}</ul>
+      </div>
+    `;
+
+    document.getElementById('detailsSidebar').innerHTML = `
+      <div class="price-box">
+        <small>سعر الكورس</small>
+        <div class="price">${course.price} ج.م</div>
+        <small>شامل جميع المستلزمات</small>
+      </div>
+      <ul class="info-list">
+        <li><span>عدد المحاضرات</span><span>${course.lectures} محاضرة</span></li>
+        <li><span>مدة الكورس</span><span>${course.duration}</span></li>
+        <li><span>المرحلة</span><span>${course.stage}</span></li>
+        <li><span>المدرس</span><span>${course.teacher}</span></li>
+        <li><span>المواعيد</span><span>${course.schedule}</span></li>
+        <li><span>الحالة</span><span style="color:${course.status==='متاح'?'var(--accent)':course.status==='مكتمل'?'#ef4444':'var(--secondary)'}">${course.status}</span></li>
+      </ul>
+      <button class="enroll-btn" onclick="openWhatsApp()"><i class="fas fa-graduation-cap"></i> احجز مكانك الآن</button>
+      <button class="whatsapp-enroll" onclick="openWhatsApp()"><i class="fab fa-whatsapp"></i> استفسر عبر واتساب</button>
+    `;
+
+    showPage('details');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  // ===== PAGE NAVIGATION =====
+  function showPage(page){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById('courseDetailsPage').classList.remove('active');
+    if(page==='home'){
+      document.getElementById('homePage').classList.add('active');
+    } else if(page==='courses'){
+      document.getElementById('coursesPage').classList.add('active');
+      renderAllCourses();
+    } else if(page==='details'){
+      document.getElementById('courseDetailsPage').classList.add('active');
+    }
+    window.scrollTo({top:0,behavior:'smooth'});
+    document.getElementById('navLinks').classList.remove('active');
+  }
+
+  function scrollToSection(id){
+    showPage('home');
+    setTimeout(()=>{
+      document.getElementById(id).scrollIntoView({behavior:'smooth'});
+    },100);
+    document.getElementById('navLinks').classList.remove('active');
+  }
+
+  function setActive(el){
+    document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  function toggleMenu(){
+    document.getElementById('navLinks').classList.toggle('active');
+  }
+
+  function filterCourses(subject,btn){
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    renderAllCourses(subject);
+  }
+
+  function openWhatsApp(){
+    window.open('https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن كورسات مركز موزه','_blank');
+  }
+
+  function submitForm(e){
+    e.preventDefault();
+    alert('شكراً لتواصلك معنا! سنرد عليك في أقرب وقت.');
+    e.target.reset();
+  }
+
+  // ===== INIT =====
+  renderFeaturedCourses();
+  renderAllCourses();
+</script>
+</body>
+</html>
